@@ -1,0 +1,34 @@
+name: unix-domain-server
+version: '0.1'
+summary: Simple Unix domain server example written in Go.
+description: |
+  Simple Unix domain server example written in Go.  The
+  primary usage is to test sharing a socket between snaps
+  from the same developer/publisher via the content interface.
+
+grade: devel
+#confinement: devmode # use 'strict' once you have the right plugs and slots
+confinement: strict
+
+slots:
+  content:
+    content: socket-directory
+    read:
+      - $SNAP_DATA/sockdir
+
+apps:
+  unix-domain-server:
+    command: bin/server-wrapper
+#    plugs: [network-bind, snapd-control]
+    plugs: [network-bind]
+    
+parts:
+  unix-domain-server-common:
+    plugin: copy
+    files:
+      bin/server-wrapper: bin/server-wrapper
+
+  unix-domain-server:
+    source: .
+    plugin: go
+    go-importpath: github.com/tonyespy/unix-domain-server

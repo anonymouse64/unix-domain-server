@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# set shell options:
+#  -e 	    Exit immediately if a command exits w/non-zero status
+#  -x	    print commands and their args as executed
+set -ex
+
+sockdir=$SNAP_DATA/sockdir
+
+# cleanup from previous server runs
+if [ -e $sockdir ]; then
+    rm -rf $sockdir
+fi
+
+mkdir -p $sockdir
+
+$SNAP/bin/unix-domain-server $SNAP_DATA/sockdir/
