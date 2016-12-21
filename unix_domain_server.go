@@ -32,7 +32,7 @@ func main() {
 	}
 
 	dir := os.Args[1]
-	path := dir + "/socket"
+	path := dir + "/sockets/socket"
 
 	fmt.Println("socket path is ", path)
 

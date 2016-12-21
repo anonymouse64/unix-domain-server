@@ -12,8 +12,8 @@ confinement: strict
 slots:
   content:
     content: socket-directory
-    read:
-      - $SNAP_DATA
+    write:
+      - $SNAP_DATA/sockets
 
 apps:
   unix-domain-server:
