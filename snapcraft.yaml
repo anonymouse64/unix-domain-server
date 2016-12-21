@@ -24,9 +24,12 @@ apps:
     
 parts:
   unix-domain-server-common:
-    plugin: copy
-    files:
-      bin/server-wrapper: bin/server-wrapper
+    plugin: dump
+    source: .
+    filesets:
+      bin: [bin/server-wrapper]
+    stage: [$bin]
+    snap: [$bin]
 
   unix-domain-server:
     source: .
