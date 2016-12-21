@@ -7,7 +7,6 @@ description: |
   from the same developer/publisher via the content interface.
 
 grade: devel
-#confinement: devmode # use 'strict' once you have the right plugs and slots
 confinement: strict
 
 slots:
@@ -19,7 +18,6 @@ slots:
 apps:
   unix-domain-server:
     command: bin/server-wrapper
-#    plugs: [network-bind, snapd-control]
     plugs: [network-bind]
     
 parts:
