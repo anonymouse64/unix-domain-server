@@ -5,8 +5,10 @@
 #  -x	    print commands and their args as executed
 set -ex
 
-if [ -e $SNAP_DATA/socket ]; then
-    rm $SNAP_DATA/socket
+mkdir -p $SNAP_DATA/sockets
+
+if [ -e $SNAP_DATA/sockets/socket ]; then
+    rm $SNAP_DATA/sockets/socket
 fi
 
 $SNAP/bin/unix-domain-server $SNAP_DATA
