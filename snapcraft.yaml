@@ -13,7 +13,7 @@ slots:
   content:
     content: socket-directory
     read:
-      - $SNAP_DATA/sockdir
+      - $SNAP_DATA
 
 apps:
   unix-domain-server:
