@@ -32,9 +32,8 @@ func main() {
 	}
 
 	dir := os.Args[1]
-	path := dir + "socket"
+	path := dir + "/socket"
 
-	fmt.Println("$SNAP_DATA is", dir)
 	fmt.Println("socket path is ", path)
 
 	l, err := net.Listen("unix", path)
