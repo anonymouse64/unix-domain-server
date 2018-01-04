@@ -18,8 +18,9 @@ slots:
 apps:
   unix-domain-server:
     command: bin/server-wrapper
-    plugs: [network-bind]
-    
+    plugs: [network-bind, timezone-control, time-control, timeserver-control]
+    daemon: simple
+
 parts:
   unix-domain-server-common:
     plugin: dump
@@ -27,7 +28,7 @@ parts:
     filesets:
       bin: [bin/server-wrapper]
     stage: [$bin]
-    snap: [$bin]
+    prime: [$bin]
 
   unix-domain-server:
     source: .
